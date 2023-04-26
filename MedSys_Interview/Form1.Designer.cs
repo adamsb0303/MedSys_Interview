@@ -35,6 +35,7 @@
             this.editButton = new System.Windows.Forms.Button();
             this.editUpdateButton = new System.Windows.Forms.Button();
             this.editCancelButton = new System.Windows.Forms.Button();
+            this.editTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // itemTextBox
@@ -43,6 +44,7 @@
             this.itemTextBox.Name = "itemTextBox";
             this.itemTextBox.Size = new System.Drawing.Size(742, 20);
             this.itemTextBox.TabIndex = 1;
+            this.itemTextBox.KeyDown += this.itemTextBox_KeyDown;
             // 
             // addButton
             // 
@@ -105,11 +107,20 @@
             this.editCancelButton.UseVisualStyleBackColor = true;
             this.editCancelButton.Click += new System.EventHandler(this.editCancelButton_Click);
             // 
+            // editTextBox
+            // 
+            this.editTextBox.Location = new System.Drawing.Point(30, 12);
+            this.editTextBox.Name = "editTextBox";
+            this.editTextBox.Size = new System.Drawing.Size(742, 20);
+            this.editTextBox.TabIndex = 8;
+            this.editTextBox.KeyDown += this.editTextBox_KeyDown;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 431);
+            this.Controls.Add(this.editTextBox);
             this.Controls.Add(this.editCancelButton);
             this.Controls.Add(this.editUpdateButton);
             this.Controls.Add(this.editButton);
@@ -134,6 +145,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button editUpdateButton;
         private System.Windows.Forms.Button editCancelButton;
+        private System.Windows.Forms.TextBox editTextBox;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MedSys_Interview
 {
@@ -11,6 +12,7 @@ namespace MedSys_Interview
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            editTextBox.Hide();
             editUpdateButton.Hide();
             editCancelButton.Hide();
 
@@ -32,8 +34,22 @@ namespace MedSys_Interview
             File.WriteAllLines("SavedItems.txt", itemList);
         }
 
+        private void itemTextBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter)
+                addButton.PerformClick();
+        }
+
+        private void editTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                editUpdateButton.PerformClick();
+            else if (e.KeyCode == Keys.Escape)
+                editCancelButton.PerformClick();
+        }
+
         private void addButton_Click(object sender, EventArgs e) {
             itemListBox.Items.Add(itemTextBox.Text);
+            itemTextBox.Text = "";
         }
 
         private void itemListBox_SelectedIndexChanged(object sender, EventArgs e) {
@@ -57,28 +73,32 @@ namespace MedSys_Interview
         }
 
         private void editButton_Click(object sender, EventArgs e) {
+            itemTextBox.Hide();
             addButton.Hide();
             editButton.Hide();
             removeButton.Hide();
 
-            itemTextBox.Text = itemListBox.Items[itemListBox.SelectedIndex].ToString();
+            editTextBox.Text = itemListBox.Items[itemListBox.SelectedIndex].ToString();
+            editTextBox.Show();
             editUpdateButton.Show();
             editCancelButton.Show();
         }
 
         private void editUpdateButton_Click(object sender, EventArgs e) {
-            itemListBox.Items[itemListBox.SelectedIndex] = itemTextBox.Text;
+            itemListBox.Items[itemListBox.SelectedIndex] = editTextBox.Text;
 
             editCancelButton_Click(sender, e);
         }
 
         private void editCancelButton_Click(object sender, EventArgs e) {
-            itemTextBox.Text = "";
+            editTextBox.Text = "";
 
             addButton.Show();
             editButton.Show();
             removeButton.Show();
+            itemTextBox.Show();
 
+            editTextBox.Hide();
             editCancelButton.Hide();
             editUpdateButton.Hide();
         }

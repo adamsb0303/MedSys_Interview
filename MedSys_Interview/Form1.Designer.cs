@@ -33,18 +33,20 @@
             this.itemListBox = new System.Windows.Forms.ListBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.editUpdateButton = new System.Windows.Forms.Button();
+            this.editCancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // itemTextBox
             // 
-            this.itemTextBox.Location = new System.Drawing.Point(30, 33);
+            this.itemTextBox.Location = new System.Drawing.Point(30, 12);
             this.itemTextBox.Name = "itemTextBox";
-            this.itemTextBox.Size = new System.Drawing.Size(661, 20);
+            this.itemTextBox.Size = new System.Drawing.Size(742, 20);
             this.itemTextBox.TabIndex = 1;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(697, 31);
+            this.addButton.Location = new System.Drawing.Point(535, 38);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
@@ -55,16 +57,16 @@
             // itemListBox
             // 
             this.itemListBox.FormattingEnabled = true;
-            this.itemListBox.Location = new System.Drawing.Point(30, 73);
+            this.itemListBox.Location = new System.Drawing.Point(30, 69);
             this.itemListBox.Name = "itemListBox";
-            this.itemListBox.Size = new System.Drawing.Size(742, 329);
+            this.itemListBox.Size = new System.Drawing.Size(742, 342);
             this.itemListBox.TabIndex = 3;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.itemListBox_SelectedIndexChanged);
             // 
             // removeButton
             // 
             this.removeButton.Enabled = false;
-            this.removeButton.Location = new System.Drawing.Point(697, 415);
+            this.removeButton.Location = new System.Drawing.Point(697, 38);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 4;
@@ -75,7 +77,7 @@
             // editButton
             // 
             this.editButton.Enabled = false;
-            this.editButton.Location = new System.Drawing.Point(616, 415);
+            this.editButton.Location = new System.Drawing.Point(616, 38);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 5;
@@ -83,11 +85,33 @@
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // editUpdateButton
+            // 
+            this.editUpdateButton.Location = new System.Drawing.Point(578, 38);
+            this.editUpdateButton.Name = "editUpdateButton";
+            this.editUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.editUpdateButton.TabIndex = 6;
+            this.editUpdateButton.Text = "Update";
+            this.editUpdateButton.UseVisualStyleBackColor = true;
+            this.editUpdateButton.Click += new System.EventHandler(this.editUpdateButton_Click);
+            // 
+            // editCancelButton
+            // 
+            this.editCancelButton.Location = new System.Drawing.Point(659, 38);
+            this.editCancelButton.Name = "editCancelButton";
+            this.editCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.editCancelButton.TabIndex = 7;
+            this.editCancelButton.Text = "Cancel";
+            this.editCancelButton.UseVisualStyleBackColor = true;
+            this.editCancelButton.Click += new System.EventHandler(this.editCancelButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 431);
+            this.Controls.Add(this.editCancelButton);
+            this.Controls.Add(this.editUpdateButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.itemListBox);
@@ -107,6 +131,8 @@
         private System.Windows.Forms.ListBox itemListBox;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button editUpdateButton;
+        private System.Windows.Forms.Button editCancelButton;
     }
 }
 

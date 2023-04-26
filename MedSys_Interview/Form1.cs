@@ -69,6 +69,8 @@ namespace MedSys_Interview
         private void itemListBox_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Delete)
                 removeButton.PerformClick();
+            if (e.KeyCode == Keys.Enter)
+                editButton.PerformClick();
         }
 
         private void removeButton_Click(object sender, EventArgs e) {
@@ -115,6 +117,8 @@ namespace MedSys_Interview
             editTextBox.Hide();
             editCancelButton.Hide();
             editUpdateButton.Hide();
+
+            itemListBox.Focus();
         }
     }
 }

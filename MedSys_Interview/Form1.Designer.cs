@@ -40,14 +40,16 @@
             // 
             // itemTextBox
             // 
+            this.itemTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.itemTextBox.Location = new System.Drawing.Point(30, 12);
             this.itemTextBox.Name = "itemTextBox";
             this.itemTextBox.Size = new System.Drawing.Size(742, 20);
             this.itemTextBox.TabIndex = 1;
-            this.itemTextBox.KeyDown += this.itemTextBox_KeyDown;
             // 
             // addButton
             // 
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addButton.Location = new System.Drawing.Point(535, 38);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
@@ -58,16 +60,19 @@
             // 
             // itemListBox
             // 
+            this.itemListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.itemListBox.FormattingEnabled = true;
             this.itemListBox.Location = new System.Drawing.Point(30, 69);
             this.itemListBox.Name = "itemListBox";
             this.itemListBox.Size = new System.Drawing.Size(742, 342);
             this.itemListBox.TabIndex = 3;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.itemListBox_SelectedIndexChanged);
-            this.itemListBox.KeyDown += itemListBox_KeyDown;
             // 
             // removeButton
             // 
+            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeButton.Enabled = false;
             this.removeButton.Location = new System.Drawing.Point(697, 38);
             this.removeButton.Name = "removeButton";
@@ -79,6 +84,7 @@
             // 
             // editButton
             // 
+            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editButton.Enabled = false;
             this.editButton.Location = new System.Drawing.Point(616, 38);
             this.editButton.Name = "editButton";
@@ -90,6 +96,7 @@
             // 
             // editUpdateButton
             // 
+            this.editUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editUpdateButton.Location = new System.Drawing.Point(578, 38);
             this.editUpdateButton.Name = "editUpdateButton";
             this.editUpdateButton.Size = new System.Drawing.Size(75, 23);
@@ -100,6 +107,7 @@
             // 
             // editCancelButton
             // 
+            this.editCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editCancelButton.Location = new System.Drawing.Point(659, 38);
             this.editCancelButton.Name = "editCancelButton";
             this.editCancelButton.Size = new System.Drawing.Size(75, 23);
@@ -110,11 +118,12 @@
             // 
             // editTextBox
             // 
+            this.editTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.editTextBox.Location = new System.Drawing.Point(30, 12);
             this.editTextBox.Name = "editTextBox";
             this.editTextBox.Size = new System.Drawing.Size(742, 20);
             this.editTextBox.TabIndex = 8;
-            this.editTextBox.KeyDown += this.editTextBox_KeyDown;
             // 
             // Form1
             // 
@@ -129,10 +138,10 @@
             this.Controls.Add(this.itemListBox);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.itemTextBox);
+            this.MinimumSize = new System.Drawing.Size(310, 175);
             this.Name = "Form1";
             this.Text = "MedSys Interview";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.FormClosing += this.Form1_Closing;
             this.ResumeLayout(false);
             this.PerformLayout();
 

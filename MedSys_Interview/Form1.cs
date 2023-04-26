@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MedSys_Interview
 {
-    public partial class Form1 : Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
         public Form1() {
             InitializeComponent();
@@ -19,6 +20,21 @@ namespace MedSys_Interview
         private void Form1_Load(object sender, EventArgs e) {
             editUpdateButton.Hide();
             editCancelButton.Hide();
+
+            try
+            {
+                string[] savedLines = File.ReadAllLines("SavedItems.txt");
+
+                foreach (string item in savedLines)
+                    itemListBox.Items.Add(item);
+            }catch(FileNotFoundException exception) {
+                System.Console.WriteLine("SavedItems.txt not found");
+            }
+        }
+
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            string[] itemList = itemListBox.Items.OfType<string>().ToArray();
+            File.WriteAllLines("SavedItems.txt", itemList);
         }
 
         private void addButton_Click(object sender, EventArgs e) {

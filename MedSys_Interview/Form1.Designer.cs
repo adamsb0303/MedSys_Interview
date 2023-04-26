@@ -118,8 +118,9 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.itemTextBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MedSys Interview";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += this.Form1_Closing;
             this.ResumeLayout(false);
             this.PerformLayout();
 

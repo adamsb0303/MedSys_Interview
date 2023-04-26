@@ -64,6 +64,7 @@
             this.itemListBox.Size = new System.Drawing.Size(742, 342);
             this.itemListBox.TabIndex = 3;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.itemListBox_SelectedIndexChanged);
+            this.itemListBox.KeyDown += itemListBox_KeyDown;
             // 
             // removeButton
             // 

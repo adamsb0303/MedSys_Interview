@@ -58,6 +58,11 @@ namespace MedSys_Interview
             editButton.Enabled = itemListBox.SelectedIndex != -1;
         }
 
+        private void itemListBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Delete)
+                removeButton.PerformClick();
+        }
+
         private void removeButton_Click(object sender, EventArgs e) {
             int selectedIndex = itemListBox.SelectedIndex;
             itemListBox.Items.RemoveAt(selectedIndex);

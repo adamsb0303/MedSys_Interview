@@ -35,16 +35,24 @@ namespace MedSys_Interview
         }
 
         private void itemTextBox_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter) {
                 addButton.PerformClick();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
-        private void editTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
+        private void editTextBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode != Keys.Enter && e.KeyCode != Keys.Escape)
+                return;
+
             if (e.KeyCode == Keys.Enter)
                 editUpdateButton.PerformClick();
             else if (e.KeyCode == Keys.Escape)
                 editCancelButton.PerformClick();
+
+            e.Handled = true;
+            e.SuppressKeyPress = true;
         }
 
         private void addButton_Click(object sender, EventArgs e) {
@@ -85,6 +93,7 @@ namespace MedSys_Interview
 
             editTextBox.Text = itemListBox.Items[itemListBox.SelectedIndex].ToString();
             editTextBox.Show();
+            editTextBox.Focus();
             editUpdateButton.Show();
             editCancelButton.Show();
         }

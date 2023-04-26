@@ -25,6 +25,26 @@ namespace MedSys_Interview
         }
 
         private void itemListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            removeButton.Enabled = itemListBox.SelectedIndex != -1;
+            editButton.Enabled = itemListBox.SelectedIndex != -1;
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            int currSelectedIndex = itemListBox.SelectedIndex;
+            itemListBox.Items.RemoveAt(currSelectedIndex);
+
+            if (itemListBox.Items.Count == 0)
+                return;
+
+            if (currSelectedIndex < itemListBox.Items.Count)
+                itemListBox.SetSelected(currSelectedIndex, true);
+            else
+                itemListBox.SetSelected(itemListBox.Items.Count - 1, true);
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
             
         }
     }

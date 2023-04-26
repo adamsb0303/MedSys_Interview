@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MedSys_Interview
 {
@@ -21,6 +14,7 @@ namespace MedSys_Interview
             editUpdateButton.Hide();
             editCancelButton.Hide();
 
+            //Loads saved items from file
             try
             {
                 string[] savedLines = File.ReadAllLines("SavedItems.txt");
@@ -33,6 +27,7 @@ namespace MedSys_Interview
         }
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            //Saves current items to file
             string[] itemList = itemListBox.Items.OfType<string>().ToArray();
             File.WriteAllLines("SavedItems.txt", itemList);
         }
@@ -42,6 +37,7 @@ namespace MedSys_Interview
         }
 
         private void itemListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            //Hides edit and remove buttons if no item is selected
             removeButton.Enabled = itemListBox.SelectedIndex != -1;
             editButton.Enabled = itemListBox.SelectedIndex != -1;
         }
@@ -53,6 +49,7 @@ namespace MedSys_Interview
             if (itemListBox.Items.Count == 0)
                 return;
 
+            //Keeps selected index at current point
             if (selectedIndex < itemListBox.Items.Count)
                 itemListBox.SetSelected(selectedIndex, true);
             else

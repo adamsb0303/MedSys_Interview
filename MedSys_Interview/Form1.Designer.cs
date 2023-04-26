@@ -46,6 +46,7 @@
             this.itemTextBox.Name = "itemTextBox";
             this.itemTextBox.Size = new System.Drawing.Size(742, 20);
             this.itemTextBox.TabIndex = 1;
+            this.itemTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemTextBox_KeyDown);
             // 
             // addButton
             // 
@@ -69,6 +70,7 @@
             this.itemListBox.Size = new System.Drawing.Size(742, 342);
             this.itemListBox.TabIndex = 3;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.itemListBox_SelectedIndexChanged);
+            this.itemListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemListBox_KeyDown);
             // 
             // removeButton
             // 
@@ -124,6 +126,7 @@
             this.editTextBox.Name = "editTextBox";
             this.editTextBox.Size = new System.Drawing.Size(742, 20);
             this.editTextBox.TabIndex = 8;
+            this.editTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.editTextBox_KeyDown);
             // 
             // Form1
             // 
@@ -141,6 +144,7 @@
             this.MinimumSize = new System.Drawing.Size(310, 175);
             this.Name = "Form1";
             this.Text = "MedSys Interview";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

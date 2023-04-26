@@ -28,10 +28,16 @@ namespace MedSys_Interview
             }
         }
 
-        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        private void Form1_Closing(object sender, FormClosingEventArgs e) { 
+            if (File.Exists("SavedItems.txt"))
+                File.Delete("SavedItems.txt");
+
             //Saves current items to file
-            string[] itemList = itemListBox.Items.OfType<string>().ToArray();
-            File.WriteAllLines("SavedItems.txt", itemList);
+            using (StreamWriter sw = File.CreateText("SavedItems.txt")) {
+                string[] itemList = itemListBox.Items.OfType<string>().ToArray();
+                foreach(string item in itemList)
+                    sw.WriteLine(item);
+            }
         }
 
         private void itemTextBox_KeyDown(object sender, KeyEventArgs e) {
@@ -55,11 +61,6 @@ namespace MedSys_Interview
             e.SuppressKeyPress = true;
         }
 
-        private void addButton_Click(object sender, EventArgs e) {
-            itemListBox.Items.Add(itemTextBox.Text);
-            itemTextBox.Text = "";
-        }
-
         private void itemListBox_SelectedIndexChanged(object sender, EventArgs e) {
             //Hides edit and remove buttons if no item is selected
             removeButton.Enabled = itemListBox.SelectedIndex != -1;
@@ -71,6 +72,11 @@ namespace MedSys_Interview
                 removeButton.PerformClick();
             if (e.KeyCode == Keys.Enter)
                 editButton.PerformClick();
+        }
+
+        private void addButton_Click(object sender, EventArgs e) {
+            itemListBox.Items.Add(itemTextBox.Text);
+            itemTextBox.Text = "";
         }
 
         private void removeButton_Click(object sender, EventArgs e) {
